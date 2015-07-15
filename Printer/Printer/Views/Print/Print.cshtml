@@ -1,0 +1,16 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@{
+    ViewBag.Title = "Print";
+}
+<h2>Print Invoice</h2>
+
+<p>Click the print for printing static print</p>
+
+@Html.Raw(Neodynamic.SDK.Web.WebClientPrint.CreateScript(Url.Action("PrintInvoice", "Print", null, Request.Url.Scheme)))
+
+<a href="#" onclick="jsWebClientPrint.print('sid=@Session.SessionID');">Print...</a>
+
